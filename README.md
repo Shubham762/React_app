@@ -1,7 +1,7 @@
 # React_app
 Food application
 
-APi with alert to click
+1====>APi with alert to click
 
 import React, { useState, useEffect } from 'react';
 import './style.css';
@@ -45,6 +45,78 @@ export default function App() {
           </div>
         );
       })}
+    </div>
+  );
+}
+
+
+2===============>
+
+
+import React, { useState, useEffect } from 'react';
+import './style.css';
+
+export default function App() {
+  const [fnametxt, setFnametxt] = useState('');
+  const [snametxt, setSnametxt] = useState('');
+  const [emailtxt, setEmailtxt] = useState('');
+  // const [obj,setObj]=useState({});
+   const [dataobj,setDataobj]=useState([]);
+  let obj={};
+  var data=[];
+
+
+  const handleClick=()=>{
+       obj['fname']=fnametxt
+       obj['sname']=snametxt
+       obj['email']=emailtxt
+       console.log("",obj);
+       data.push(obj)
+       setDataobj(data);
+       console.log("",data);
+  }
+ 
+
+  return (
+    <div>
+      <h1>API calling</h1>
+     <input 
+     placeholder="Enter the first name"
+     value={fnametxt}
+     onChange={(e)=>{setFnametxt(e.target.value)}}
+     
+     />
+     <input placeholder="Enter the second name"
+      value={snametxt}
+      onChange={(e)=>{setSnametxt(e.target.value)}}/>
+     <input placeholder="Enter the email"
+      value={emailtxt}
+      onChange={(e)=>{setEmailtxt(e.target.value)}}
+     />
+     <div></div>
+     <button onClick={()=>{handleClick()}}>Add</button>
+     {
+       dataobj.map((item)=>{
+         return(
+           <div>
+            <table>
+             <tr>
+               <th>FirstName</th>
+               <th>SecondName</th>
+               <th>Email</th>
+             </tr>
+             <tr>
+               <td>{item.fname}</td>
+               <td>{item.sname}</td>
+               <td>{item.email}</td>
+             </tr>
+
+            </table>
+             
+           </div>
+         )
+       })
+     }
     </div>
   );
 }
