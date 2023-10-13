@@ -121,3 +121,21 @@ export default function App() {
   );
 }
 
+
+3.===========================>
+Print name using recursion
+var str="shubham"
+var len=str.length;
+var i=0
+
+
+function print(str,i){
+    if(i===len) return;
+      console.log(str[i]);
+        i++;
+    print(str,i);
+}
+
+print(str,i)
+
+
